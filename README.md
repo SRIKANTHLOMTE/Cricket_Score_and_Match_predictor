@@ -1,3 +1,4 @@
+<img width="847" alt="Match_predictor" src="https://github.com/user-attachments/assets/6c36d03d-c1b2-458f-bce8-7941fc0282d4" />
 Cricket Win & Score Predictor
 
 This is a simple web-based cricket win and score predictor. The interface includes a "Predict" button, which, when clicked, redirects the user to a new page displaying the Indian flag along with the message "India into the final, to be played on 9th March."
