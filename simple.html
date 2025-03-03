@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Match Predictor</title>
+        </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cricket Match Predictor</h1>
+            <p>Predict match winners and scores</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tab-container">
+            <button class="tab-button active" data-tab="match-predictor">Match Winner</button>
+            <button class="tab-button" data-tab="score-predictor">Score Predictor</button>
+        </div>
+        
+        <div id="match-predictor" class="tab-content active">
+            <h2>Predict Match Winner</h2>
+            
+            <form id="match-form">
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="team1">Team 1</label>
+                        <select id="team1" required>
+                            <option value="">Select Team</option>
+                            <option value="India">India</option>
+                            <option value="Australia">Australia</option>
+                            <option value="England">England</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="West Indies">West Indies</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="team2">Team 2</label>
+                        <select id="team2" required>
+                            <option value="">Select Team</option>
+                            <option value="India">India</option>
+                            <option value="Australia">Australia</option>
+                            <option value="England">England</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="West Indies">West Indies</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="venue">Venue</label>
+                        <select id="venue" required>
+                            <option value="">Select Venue</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Melbourne">Melbourne</option>
+                            <option value="Lords">Lords</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Johannesburg">Johannesburg</option>
+                            <option value="Sydney">Sydney</option>
+                            <option value="Colombo">Colombo</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="toss_winner">Toss Winner</label>
+                        <select id="toss_winner" required>
+                            <option value="">Select Toss Winner</option>
+                            <!-- Will be populated based on selected teams -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="match_type">Match Type</label>
+                        <select id="match_type" required>
+                            <option value="ODI">ODI</option>
+                            <option value="T20">T20</option>
+                            <option value="Test">Test</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="pitch_condition">Pitch Condition</label>
+                        <select id="pitch_condition">
+                            <option value="Batting">Batting Friendly</option>
+                            <option value="Bowling">Bowling Friendly</option>
+                            <option value="Balanced">Balanced</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit">Predict Winner</button>
+            </form>
+            
+            <div id="match-result" class="result-container">
+                <h3 class="result-header">Match Prediction Results</h3>
+                
+                <div class="team-prediction" id="team1-prediction">
+                    <div class="team-name" id="team1-name">India</div>
+                    <div id="team1-probability">Win Probability: 65%</div>
+                </div>
+                
+                <div class="team-prediction" id="team2-prediction">
+                    <div class="team-name" id="team2-name">Australia</div>
+                    <div id="team2-probability">Win Probability: 35%</div>
+                </div>
+                
+                <div id="match-summary">
+                    <p>Predicted winner: <strong id="predicted-winner">India</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="score-predictor" class="tab-content">
+            <h2>Predict Innings Score</h2>
+            
+            <form id="score-form">
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="batting_team">Batting Team</label>
+                        <select id="batting_team" required>
+                            <option value="">Select Team</option>
+                            <option value="India">India</option>
+                            <option value="Australia">Australia</option>
+                            <option value="England">England</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="West Indies">West Indies</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="bowling_team">Bowling Team</label>
+                        <select id="bowling_team" required>
+                            <option value="">Select Team</option>
+                            <option value="India">India</option>
+                            <option value="Australia">Australia</option>
+                            <option value="England">England</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="West Indies">West Indies</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="score_venue">Venue</label>
+                        <select id="score_venue" required>
+                            <option value="">Select Venue</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Melbourne">Melbourne</option>
+                            <option value="Lords">Lords</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Johannesburg">Johannesburg</option>
+                            <option value="Sydney">Sydney</option>
+                            <option value="Colombo">Colombo</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="innings">Innings</label>
+                        <select id="innings" required>
+                            <option value="1">1st Innings</option>
+                            <option value="2">2nd Innings</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="score_match_type">Match Type</label>
+                        <select id="score_match_type" required>
+                            <option value="ODI">ODI</option>
+                            <option value="T20">T20</option>
+                            <option value="Test">Test</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="score_pitch_condition">Pitch Condition</label>
+                        <select id="score_pitch_condition">
+                            <option value="Batting">Batting Friendly</option>
+                            <option value="Bowling">Bowling Friendly</option>
+                            <option value="Balanced">Balanced</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit">Predict Score</button>
+            </form>
+            
+            <div id="score-result" class="result-container">
+                <h3 class="result-header">Score Prediction Results</h3>
+                
+                <div class="score-prediction">
+                    <h4 id="score-heading">India vs Australia at Mumbai</h4>
+                    <div class="score-value" id="predicted-score">287</div>
+                    <p id="score-range">Estimated range: 270-305</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
